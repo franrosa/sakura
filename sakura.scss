@@ -1,0 +1,195 @@
+/*
+	Sakura
+	https://franrosa.github.io/sakura/
+*/
+@mixin card-collection($cards-min-size, $cards-max-size: $cards-min-size, $cards-separation: 0, $cards-inner-space: 0){
+	&.card-collection {
+		display: flex;
+		&.card-collection--row {
+			flex-direction: row;
+		}
+		&.card-collection--column {
+			flex-direction: column;
+		}
+		&.card-collection--wrap {
+			flex-wrap: wrap;
+		}
+		&.card-collection--no-wrap {
+			flex-wrap: no-wrap;
+		}
+		&.card-collection--justify-flex-start {
+			justify-content: flex-start;
+		}
+		&.card-collection--justify-flex-end {
+			justify-content: flex-end;
+		}
+		&.card-collection--justify-center {
+			justify-content: center;
+		}
+		&.card-collection--justify-space-between {
+			justify-content: space-between;
+		}
+		&.card-collection--justify-space-around {
+			justify-content: space-around;
+		}
+		&.card-collection--align-items-flex-start {
+			align-items: flex-start;
+		}
+		&.card-collection--align-items-flex-end {
+			align-items: flex-end;
+		}
+		&.card-collection--align-items-center {
+			align-items: center;
+		}
+		&.card-collection--align-items-stretch {
+			align-items: stretch;
+		}
+		&.card-collection--align-items-baseline {
+			align-items: baseline;
+		}
+	}
+	.card-wrap {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: auto;
+		box-sizing: border-box;
+		padding: $cards-separation / 2;
+		.card {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: no-wrap;
+			align-items: stretch;
+			justify-content: space-between;
+			padding: 0 0 ($cards-inner-space / 4);
+			.card__row {
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: auto;
+				margin: 0;
+				padding: 0 $cards-inner-space ($cards-inner-space / 2);
+				&:nth-of-type(1) {
+					padding-top: $cards-inner-space;
+				}
+				&.card__row--no-padding {
+					padding: 0;
+					& + .card__row {
+						padding-top: ($cards-inner-space / 2);
+					}
+				}
+				&.card__row--growable {
+					flex-grow: 1;
+				}
+				&.card__row--shrinkable {
+					flex-shrink: 1;
+				}
+				.card__row__divisions {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					justify-content: flex-start;
+					align-items: flex-start;
+					.card__row__divisions__division {
+						flex-grow: 0;
+						flex-shrink: 0;
+						flex-basis: auto;
+					}
+				}
+			}
+		}
+	}
+	&.card-collection--row .card-wrap {
+		width: $cards-min-size;
+	}
+	&.card-collection--column .card-wrap {
+		height: $cards-min-size;
+	}
+	.card-wrap--growable {
+		flex-grow: 1;
+	}
+	&.card-collection--row .card-wrap--growable {
+		width: $cards-min-size;
+		max-width: $cards-max-size;
+	}
+	&.card-collection--column .card-wrap--growable {
+		height: $cards-min-size;
+		max-height: $cards-max-size;
+	}
+	.card-wrap--shrinkable {
+		flex-shrink: 1;
+	}
+	&.card-collection--row .card-wrap--shrinkable {
+		min-width: $cards-min-size;
+		width: $cards-max-size;
+	}
+	&.card-collection--column .card-wrap--shrinkable {
+		min-height: $cards-min-size;
+		height: $cards-max-size;
+	}
+	&.card-collection--row .card-wrap--growable.card-wrap--shrinkable {
+		min-width: $cards-min-size;
+		width: $cards-min-size + ( ( $cards-max-size - $cards-min-size ) / 2 );
+		max-width: $cards-max-size;
+	}
+	&.card-collection--column .card-wrap--growable.card-wrap--shrinkable {
+		min-height: $cards-min-size;
+		height: $cards-min-size + ( ( $cards-max-size - $cards-min-size ) / 2 );
+		max-height: $cards-max-size;
+	}
+}
+@mixin standalone-card($cards-inner-space: 0){
+	&.card-wrap {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: auto;
+		box-sizing: border-box;
+		padding: 0;
+		.card {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			align-items: stretch;
+			justify-content: space-between;
+			padding: 0 0 ($cards-inner-space / 4);
+			.card__row {
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: auto;
+				margin: 0;
+				padding: 0 $cards-inner-space ($cards-inner-space / 2);
+				&:nth-of-type(1) {
+					padding-top: $cards-inner-space;
+				}
+				&.card__row--no-padding {
+					padding: 0;
+					& + .card__row {
+						padding-top: ($cards-inner-space / 2);
+					}
+				}
+				&.card__row--growable {
+					flex-grow: 1;
+				}
+				&.card__row--shrinkable {
+					flex-shrink: 1;
+				}
+				.card__row__divisions {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					justify-content: flex-start;
+					align-items: flex-start;
+					.card__row__divisions__division {
+						flex-grow: 0;
+						flex-shrink: 0;
+						flex-basis: auto;
+						&.card__row__divisions__division--growable {
+							flex-grow: 1;
+						}
+						&.card__row__divisions__division--shrinkable {
+							flex-shrink: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
