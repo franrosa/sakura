@@ -389,3 +389,52 @@ section pre .string {
 a {
 	color: inherit;
 }
+footer {
+	padding: 1em 0;
+	text-align: center;
+	font-size: 90%;
+}
+footer h1 {
+	font-size: 100%;
+	margin: 0 auto -4em;
+	max-width: 18em;
+	transform: scale(0.5);
+}
+footer h1 img {
+	width: 100%;
+	height: auto;
+}
+footer h1 span, footer h1:before, footer h1:after {
+	display: block;
+	width: 3em;
+	height: 3em;
+	margin: 0 auto;
+	position: relative;
+}
+footer h1:before, footer h1:after {
+	content: '';
+	width: 2em;
+	height: 2em;
+}
+footer h1 span {
+	background: #db8a37;
+	transform: rotate(45deg);
+	z-index: 3;
+	animation: intro-center 0.8s ease-out backwards;
+}
+footer h1:before {
+	background: #ba3b23;
+	transform: translate(-4.5em,2.5em) rotate(45deg);
+	z-index: 2;
+	animation: intro-left 0.8s 0.25s ease-out backwards;
+}
+footer h1:after {
+	background: #d4879d;
+	transform: translate(4.5em,-7.5em) rotate(45deg);
+	z-index: 1;
+	animation: intro-right 0.8s 0.5s ease-out backwards;
+}
+footer a {
+	color: #d4879d;
+	text-decoration: none;
+}
