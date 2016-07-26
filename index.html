@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sakura</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body>
+	<header>
+		<h1><span></span><img src="logo.png" alt=""></h1>
+		<p class="version">v1.1</p>
+		<h2>SCSS mixins to work with cards — and card collections — using flexbox</h2>
+	</header>
+	<section>
+		<h1>Intro</h1>
+		<p><strong>Sakura</strong> is a single SCSS file include two mixins: one for standalone cards, and one for card collections using flexbox, originally created to be used with <a href="http://sierra-library.github.io/">Sierra SCSS Library</a>.</p>
+		<p>Both collections and standalone cards require calling the mixin for the container, and including all classes needed in HTML. Classes use BEM naming convention to make them easily readable.</p>
+		<h2>Why mixins?</h2>
+		<p>It's the perfect solution if you want to use it for different cards and collections, so each collection has its own set of vars.</p>
+	</section>
+	<section>
+		<h1>Mixins</h1>
+		<h2>card-collection</h2>
+		<pre><span class="selector">@include</span> card-collection(<span class="var">$cards-min-size</span>,<span class="var">$cards-max-size</span>,<span class="var">$cards-separation</span>,<span class="var">$cards-inner-space</span>);</pre>
+		<dl>
+			<dt>cards-min-size</dt>
+				<dd>
+					<p>Minimum size of the cards (<em>width</em> when cards are displayed in rows, <em>height</em> when they're displayed in columns). For fixed size cards, this will be the size used.</p>
+					<p>This var has no default value.</p>
+				</dd>
+			<dt>cards-max-size</dt>
+				<dd>
+					<p>Maximum size of the cards (width when cards are displayed in rows, height when they're displayed in columns).</p>
+					<p>Default value is same as <em>cards-min-size</em>.</p>
+				</dd>
+			<dt>cards-separation</dt>
+				<dd>
+					<p>Space between cards (both vertical and horizontal).</p>
+					<p>Default value is 0.</p>
+				</dd>
+			<dt>cards-inner-space</dt>
+				<dd>
+					<p>Space between content and border, and between cards' contents.</p>
+					<p>Default value is 0.</p>
+				</dd>
+		</dl>
+		<h2>standalone-card</h2>
+		<pre><span class="selector">@include</span> standalone-card(<span class="var">$cards-inner-space</span>);</pre>
+		<dl>
+			<dt>cards-inner-space</dt>
+				<dd>
+					<p>Space between content and border, and between cards' contents.</p>
+					<p>Default value is 0.</p>
+				</dd>
+		</dl>
+	</section>
+	<section>
+		<h1>HTML</h1>
+		<p>Every collection needs a container element. Inside that element — as a direct children, because if not, flexbox won't work — there's an element acting as a wrapper for the card, with a card element inside. This is for managing spaces between cards. Inside a card there's as many rows as you need, and if you need several contents in the same row, an element containing them and those elements.</p>
+		<p>The collection and card wrapper elements use flexbox for displaying the card collection, but flexbox is used also inside the card to display rows, and also the elements on subdivided rows.</p>
+		<div class="html">
+			<div class="collection">
+				<div class="card-wrap">
+					<div class="card">
+						<div class="row">&nbsp;</div>
+						<div class="row">&nbsp;</div>
+						<div class="row">
+							<div class="divisions">
+								<div class="division">&nbsp;</div>
+								<div class="division">&nbsp;</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h1>Collection</h1>
+		<h2>Required</h2>
+		<dl>
+			<dt>card-collection</dt>
+				<dd>
+					<p>Has to be used on the element containing the cards. The <em>card-collection</em> mixin should be called on this same element.</p>
+					<p><strong>Important!</strong> The way flexbox works cards should be direct children of this element.</p>
+				</dd>
+			<dt>card-collection--row | card-collection--column</dt>
+				<dd>
+					<p>Direction in which cards would be displayed, horizontally by rows or vertically by columns.</p>
+				</dd>
+			<dt>card-collection--wrap | card-collection--no-wrap</dt>
+				<dd>
+					<p>If cards are wrapped, they will go on several rows or columns; if not, the will be displayed on a single row or column.</p>
+				</dd>
+			<dt>card-collection--justify-flex-start | card-collection--justify-flex-end | card-collection--justify-center | card-collection--justify-space-between | card-collection--justify-space-around</dt>
+				<dd>
+					<p>How cards are displayed: starting at the start of the line, at the end of the line, centered along the line, distributed at start and end with equal space between the elements, or distributed with equal space between the elements and around them to the start and end of the line.</p>
+				</dd>
+			<dt>card-collection--align-items-flex-start | card-collection--align-items-flex-end | card-collection--align-items-center | card-collection--align-items-stretch | card-collection--align-items-baseline</dt>
+				<dd>
+					<p>How cards are aligned with each other: at the start of the element, at the end of it, centered, at baseline or stretched to fill the parent full height (on rows) or width (on columns).</p>
+				</dd>
+		</dl>
+		<div id="collection-demo">
+			<div class="button-group">
+				<button>row</button>
+				<button>column</button>
+			</div>
+			<div class="button-group">
+				<button>wrap</button>
+				<button>no-wrap</button>
+			</div>
+			<div class="button-group">
+				<button>justify-flex-start</button>
+				<button>justify-flex-end</button>
+				<button>justify-center</button>
+				<button>justify-space-between</button>
+				<button>justify-space-around</button>
+			</div>
+			<div class="button-group">
+				<button>align-items-flex-start</button>
+				<button>align-items-flex-end</button>
+				<button>align-items-center</button>
+				<button>align-items-stretch</button>
+				<button>align-items-baseline</button>
+			</div>
+			<div class="card-collection">
+				<div class="card">1</div>
+				<div class="card">2</div>
+				<div class="card">3</div>
+				<div class="card">4</div>
+				<div class="card">5</div>
+				<div class="card">6</div>
+				<div class="card">7</div>
+				<div class="card">8</div>
+			</div>
+			<pre></pre>
+		</div>
+	</section>
+	<section>
+		<h1>Wrapper</h1>
+		<h2>Required</h2>
+		<dl>
+			<dt>card-wrap</dt>
+				<dd>
+					<p>Has to be used on the top element of each card. The <em>standalone-card</em> mixin should be called on this same element when used without a collection.</p>
+					<p><strong>Important!</strong> On collections, the way flexbox works this has to be a direct children of the card collection container.</p>
+				</dd>
+		</dl>
+		<h2>Optional</h2>
+		<dl>
+			<dt>card-wrap--growable</dt>
+				<dd>
+					<p>If card size can grow to fit on screen.</p>
+					<p>Can be used together with <em>card-wrap--shrinkable</em>.</p>
+				</dd>
+			<dt>card-wrap--shrinkable</dt>
+				<dd>
+					<p>If card size can shrink to fit on screen.</p>
+					<p>Can be used together with <em>card-wrap--growable</em>.</p>
+				</dd>
+		</dl>
+		<h2>How card size works?</h2>
+		<p>Using flexbox, cards can grow or shrink in size to fit the container. With these clases, you can add the ability to grow or shrink to a card, or both. If you use none, card will have a fixed size.</p>
+		<p>When part of a collection, each card would have a base size, and could have a maximum and minimum size. Those are calculated based on the vars used on the mixin, and the use of these clases.</p>
+		<p>For fixed size cards, <em>cards-min-size</em> will be used.</p>
+		<p>For growable cards, <em>cards-min-size</em> will the base card size, and <em>cards-max-size</em> will be the maximum size.</p>
+		<p>For shrinkable cards, <em>cards-max-size</em> will the base card size, and <em>cards-min-size</em> will be the minimum size.</p>
+		<p>For cards both growable and shrinkable, <em>cards-min-size</em> will the minimum card size, <em>cards-max-size</em> will be the maximum size and the base size will be calculated halfway between <em>cards-min-size</em> and <em>cards-max-size</em>.</p>
+		<div id="width-demo">
+			<pre><span class="var">$min-cards-size: <input type="number" min="0" max="999" id="minsizeinput" value="200">px</span> and <span class="var">$max-cards-size: <input type="number" min="0" max="999" id="maxsizeinput" value="500">px</span></pre>
+			<div class="button-group">
+				<button>growable</button>
+				<button>shrinkable</button>
+			</div>
+			<pre><span class="labelminwidth"><span class="attribute">min-width:</span> <span class="string">'<span id="finalminwidth">200px</span>';</span></span> <span class="attribute">width:</span> <span class="string">'<span id="finalwidth">350px</span>';</span> <span class="labelmaxwidth"><span class="attribute attributemaxwidth">max-width:</span> <span class="string">'<span id="finalmaxwidth">500px</span>';</span></span></pre>
+			<p class="note">(On column collections size will be applied to height instead of width)</p>
+		</div>
+	</section>
+	<section>
+		<h1>Card</h1>
+		<h2>Required</h2>
+		<dl>
+			<dt>card</dt>
+				<dd>
+					<p>An element children of the wrapper.</p>
+				</dd>
+		</dl>
+	</section>
+	<section>
+		<h1>Row</h1>
+		<h2>Required</h2>
+		<dl>
+			<dt>card__row</dt>
+				<dd>
+					<p>An element containing one row of content of the card.</p>
+				</dd>
+		</dl>
+		<h2>Optional</h2>
+		<dl>
+			<dt>card__row--no-padding</dt>
+				<dd>
+					<p>A row without any inner space.</p>
+				</dd>
+			<dt>card__row--growable</dt>
+				<dd>
+					<p>Row height can grow to fit card available space.</p>
+				</dd>
+			<dt>card__row--shrinkable</dt>
+				<dd>
+					<p>Row height can shrink to fit card available space.</p>
+				</dd>
+		</dl>
+		<div class="doublehtml">
+			<div class="html">
+				<div class="card fixedheightcard fixedheightcardtall">
+					<div class="row">&nbsp;</div>
+					<div class="growable row">&nbsp;</div>
+					<div class="row">&nbsp;</div>
+				</div>
+			</div>
+			<div class="html">
+				<div class="card fixedheightcard fixedheightcardshort">
+					<div class="row">&nbsp;</div>
+					<div class="shrinkable row">&nbsp;</div>
+					<div class="row">&nbsp;</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h1>Divisions</h1>
+		<h2>Required</h2>
+		<dl>
+			<dt>card__row__divisions</dt>
+				<dd>An element containing horizontal subdivisions of one row of content of the card.</dd>
+		</dl>
+	</section>
+	<section>
+		<h1>Division</h1>
+		<h2>Required</h2>
+		<dl>
+			<dt>card__row__divisions__division</dt>
+				<dd>One piece of content on a card's subdivided row.</dd>
+		</dl>
+		<h2>Optional</h2>
+		<dl>
+			<dt>card__row__divisions__division--growable</dt>
+				<dd>
+					<p>Division width can grow to fit row available space.</p>
+				</dd>
+			<dt>card__row__divisions__division--shrinkable</dt>
+				<dd>
+					<p>Division width can shrink to fit row available space.</p>
+				</dd>
+		</dl>
+		<div class="html">
+			<div class="row fixedwidthwide">
+				<div class="divisions">
+					<div class="invisible">
+						<div class="division">&nbsp;</div>
+						<div class="growable division">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+			<div class="row fixedwidthnarrow">
+				<div class="divisions">
+					<div class="invisible">
+						<div class="division">&nbsp;</div>
+						<div class="shrinkable division">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
