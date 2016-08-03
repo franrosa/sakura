@@ -137,56 +137,49 @@
 	}
 }
 @mixin standalone-card($cards-inner-space: 0){
-	&.card-wrap {
-		flex-grow: 0;
-		flex-shrink: 0;
-		flex-basis: auto;
-		box-sizing: border-box;
-		padding: 0;
-		.card {
-			display: flex;
-			flex-direction: column;
-			flex-wrap: nowrap;
-			align-items: stretch;
-			justify-content: space-between;
-			padding: 0 0 ($cards-inner-space / 4);
-			.card__row {
-				flex-grow: 0;
-				flex-shrink: 0;
-				flex-basis: auto;
-				margin: 0;
-				padding: 0 $cards-inner-space ($cards-inner-space / 2);
-				&:nth-of-type(1) {
-					padding-top: $cards-inner-space;
+	&.card {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: stretch;
+		justify-content: space-between;
+		padding: 0 0 ($cards-inner-space / 4);
+		.card__row {
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: auto;
+			margin: 0;
+			padding: 0 $cards-inner-space ($cards-inner-space / 2);
+			&:nth-of-type(1) {
+				padding-top: $cards-inner-space;
+			}
+			&.card__row--no-padding {
+				padding: 0;
+				& + .card__row {
+					padding-top: ($cards-inner-space / 2);
 				}
-				&.card__row--no-padding {
-					padding: 0;
-					& + .card__row {
-						padding-top: ($cards-inner-space / 2);
+			}
+			&.card__row--growable {
+				flex-grow: 1;
+			}
+			&.card__row--shrinkable {
+				flex-shrink: 1;
+			}
+			.card__row__divisions {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				justify-content: flex-start;
+				align-items: flex-start;
+				.card__row__divisions__division {
+					flex-grow: 0;
+					flex-shrink: 0;
+					flex-basis: auto;
+					&.card__row__divisions__division--growable {
+						flex-grow: 1;
 					}
-				}
-				&.card__row--growable {
-					flex-grow: 1;
-				}
-				&.card__row--shrinkable {
-					flex-shrink: 1;
-				}
-				.card__row__divisions {
-					display: flex;
-					flex-direction: row;
-					flex-wrap: nowrap;
-					justify-content: flex-start;
-					align-items: flex-start;
-					.card__row__divisions__division {
-						flex-grow: 0;
-						flex-shrink: 0;
-						flex-basis: auto;
-						&.card__row__divisions__division--growable {
-							flex-grow: 1;
-						}
-						&.card__row__divisions__division--shrinkable {
-							flex-shrink: 1;
-						}
+					&.card__row__divisions__division--shrinkable {
+						flex-shrink: 1;
 					}
 				}
 			}
