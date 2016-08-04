@@ -1,6 +1,7 @@
 /*
 	Sakura
 	https://franrosa.github.io/sakura/
+	v1.2
 */
 @mixin card-collection($cards-min-size, $cards-max-size: $cards-min-size, $cards-separation: 0, $cards-inner-space: 0){
 	&.card-collection {
