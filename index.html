@@ -20,7 +20,7 @@
 <body>
 	<header>
 		<h1><span></span><img src="logo.png" alt="Sakura"></h1>
-		<p class="version">v1.1</p>
+		<p class="version">v1.2</p>
 		<h2>SCSS mixins to work with cards — and card collections — using flexbox</h2>
 	</header>
 	<section>
@@ -155,7 +155,7 @@
 		<dl>
 			<dt>card-wrap</dt>
 				<dd>
-					<p>Has to be used on the top element of each card. The <em>standalone-card</em> mixin should be called on this same element when used without a collection.</p>
+					<p>Has to be used on the top element of each card.</p>
 					<p><strong>Important!</strong> On collections, the way flexbox works this has to be a direct children of the card collection container.</p>
 				</dd>
 		</dl>
@@ -195,7 +195,7 @@
 		<dl>
 			<dt>card</dt>
 				<dd>
-					<p>An element children of the wrapper.</p>
+					<p>An element children of the wrapper. The <em>standalone-card</em> mixin should be called on this same element when used without a collection.</p>
 				</dd>
 		</dl>
 	</section>
