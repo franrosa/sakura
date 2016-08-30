@@ -16,7 +16,7 @@
 			flex-wrap: wrap;
 		}
 		&.card-collection--no-wrap {
-			flex-wrap: no-wrap;
+			flex-wrap: nowrap;
 		}
 		&.card-collection--justify-flex-start {
 			justify-content: flex-start;
@@ -58,7 +58,7 @@
 		.card {
 			display: flex;
 			flex-direction: column;
-			flex-wrap: no-wrap;
+			flex-wrap: nowrap;
 			align-items: stretch;
 			justify-content: space-between;
 			padding: 0 0 ($cards-inner-space / 4);
@@ -93,6 +93,30 @@
 						flex-grow: 0;
 						flex-shrink: 0;
 						flex-basis: auto;
+						&.card__row__divisions__division--growable {
+							flex-grow: 1;
+						}
+						&.card__row__divisions__division--shrinkable {
+							flex-shrink: 1;
+						}
+						.card__row__divisions__division__sub-divisions {
+							display: flex;
+							flex-direction: column;
+							flex-wrap: nowrap;
+							justify-content: flex-start;
+							align-items: flex-start;
+							.card__row__divisions__division__sub-divisions__sub-division {
+								flex-grow: 0;
+								flex-shrink: 0;
+								flex-basis: auto;
+								&.card__row__divisions__division__sub-divisions__sub-division--growable {
+									flex-grow: 1;
+								}
+								&.card__row__divisions__division__sub-divisions__sub-division--shrinkable {
+									flex-shrink: 1;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -138,6 +162,12 @@
 	}
 }
 @mixin standalone-card($cards-inner-space: 0){
+	&.card-wrap {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: auto;
+		box-sizing: border-box;
+		padding: 0;
 	&.card {
 		display: flex;
 		flex-direction: column;
@@ -179,8 +209,27 @@
 					&.card__row__divisions__division--growable {
 						flex-grow: 1;
 					}
-					&.card__row__divisions__division--shrinkable {
-						flex-shrink: 1;
+						&.card__row__divisions__division--shrinkable {
+							flex-shrink: 1;
+						}
+						.card__row__divisions__division__sub-divisions {
+							display: flex;
+							flex-direction: column;
+							flex-wrap: nowrap;
+							justify-content: flex-start;
+							align-items: flex-start;
+							.card__row__divisions__division__sub-divisions__sub-division {
+								flex-grow: 0;
+								flex-shrink: 0;
+								flex-basis: auto;
+								&.card__row__divisions__division__sub-divisions__sub-division--growable {
+									flex-grow: 1;
+								}
+								&.card__row__divisions__division__sub-divisions__sub-division--shrinkable {
+									flex-shrink: 1;
+								}
+							}
+						}
 					}
 				}
 			}
