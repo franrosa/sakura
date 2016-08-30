@@ -20,7 +20,7 @@
 <body>
 	<header>
 		<h1><span></span><img src="logo.png" alt="Sakura"></h1>
-		<p class="version">v1.2</p>
+		<p class="version">v1.3</p>
 		<h2>SCSS mixins to work with cards — and card collections — using flexbox</h2>
 	</header>
 	<section>
@@ -264,6 +264,51 @@
 			<dt>card__row__divisions__division--shrinkable</dt>
 				<dd>
 					<p>Division width can shrink to fit row available space.</p>
+				</dd>
+		</dl>
+		<div class="html">
+			<div class="row fixedwidthwide">
+				<div class="divisions">
+					<div class="invisible">
+						<div class="division">&nbsp;</div>
+						<div class="growable division">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+			<div class="row fixedwidthnarrow">
+				<div class="divisions">
+					<div class="invisible">
+						<div class="division">&nbsp;</div>
+						<div class="shrinkable division">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h1>Sub-divisions</h1>
+		<h2>Required</h2>
+		<dl>
+			<dt>card__row__divisions__division__sub-divisions</dt>
+				<dd>An element containing vertical subdivisions of one division of a row of content of the card.</dd>
+		</dl>
+	</section>
+	<section>
+		<h1>Division</h1>
+		<h2>Required</h2>
+		<dl>
+			<dt>card__row__divisions__division__sub-divisions__sub-division</dt>
+				<dd>One piece of content on a card's subdivided division.</dd>
+		</dl>
+		<h2>Optional</h2>
+		<dl>
+			<dt>card__row__divisions__division__sub-divisions__sub-division--growable</dt>
+				<dd>
+					<p>Division height can grow to fit row available space.</p>
+				</dd>
+			<dt>card__row__divisions__division__sub-divisions__sub-division--shrinkable</dt>
+				<dd>
+					<p>Division height can shrink to fit row available space.</p>
 				</dd>
 		</dl>
 		<div class="html">
