@@ -385,10 +385,10 @@ section pre .string {
 	max-height: 100px;
 }
 .fixedheightcard .row.growable, .division.growable, .subdivision.growable {
-	flex-grow: 1;
+	flex-grow: 1 !important;
 }
 .fixedheightcard .row.shrinkable, .division.shrinkable, .subdivision.shrinkable {
-	flex-shrink: 1;
+	flex-shrink: 1 !important;
 }
 .doublehtml {
 	width: 100%;
