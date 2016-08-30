@@ -88,7 +88,7 @@
 					flex-direction: row;
 					flex-wrap: nowrap;
 					justify-content: flex-start;
-					align-items: flex-start;
+					align-items: stretch;
 					.card__row__divisions__division {
 						flex-grow: 0;
 						flex-shrink: 0;
@@ -104,7 +104,7 @@
 							flex-direction: column;
 							flex-wrap: nowrap;
 							justify-content: flex-start;
-							align-items: flex-start;
+							align-items: stretch;
 							.card__row__divisions__division__sub-divisions__sub-division {
 								flex-grow: 0;
 								flex-shrink: 0;
@@ -201,7 +201,7 @@
 				flex-direction: row;
 				flex-wrap: nowrap;
 				justify-content: flex-start;
-				align-items: flex-start;
+				align-items: stretch;
 				.card__row__divisions__division {
 					flex-grow: 0;
 					flex-shrink: 0;
@@ -217,7 +217,7 @@
 							flex-direction: column;
 							flex-wrap: nowrap;
 							justify-content: flex-start;
-							align-items: flex-start;
+							align-items: stretch;
 							.card__row__divisions__division__sub-divisions__sub-division {
 								flex-grow: 0;
 								flex-shrink: 0;
