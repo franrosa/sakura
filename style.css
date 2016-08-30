@@ -176,18 +176,20 @@ section pre .string {
 	margin: 1em auto;
 	width: 60%;
 }
-.html .card, .html .row, .html .divisions {
+.html .card, .html .row, .html .divisions, .html .subdivisions {
 	margin: 1em auto;
 	width: 90%;
 }
-.html .divisions:after {
+.html .divisions:after, .html .subdivisions:after {
 	content: '';
 	display: block;
 	clear: both;
 }
-.html .division {
-	float: left;
+.html .division, .html .subdivision {
 	margin: 1em;
+}
+.html .invisible .division {
+	float: left;
 	width: 35%;
 }
 #collection-demo {
@@ -353,16 +355,39 @@ section pre .string {
 	display: flex;
 	flex-flow: row nowrap;
 }
-.division {
+.divisions .invisible .division {
 	flex: 0 0 200px;
 }
 .divisions .invisible:before {
 	display: none;
 }
-.fixedheightcard .row.growable, .division.growable {
+.subdivisions .invisible {
+	border: none;
+	padding: 0;
+	display: flex;
+	flex-flow: column nowrap;
+}
+.subdivisions .invisible:before {
+	display: none;
+}
+.subdivision {
+	flex: 0 0 auto;
+	height: 100px;
+}
+.subdivision.growable {
+	min-height: 100px;
+	height: 150px;
+	max-height: 200px;
+}
+.subdivision.shrinkable {
+	min-height: 50px;
+	height: 75px;
+	max-height: 100px;
+}
+.fixedheightcard .row.growable, .division.growable, .subdivision.growable {
 	flex-grow: 1;
 }
-.fixedheightcard .row.shrinkable, .division.shrinkable {
+.fixedheightcard .row.shrinkable, .division.shrinkable, .subdivision.shrinkable {
 	flex-shrink: 1;
 }
 .doublehtml {
