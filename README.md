@@ -1,4 +1,4 @@
-# Sakura v1.1
+# Sakura v1.4
 
 SCSS mixins to work with cards — and card collections — using flexbox
 
@@ -66,7 +66,7 @@ The collection and card wrapper elements use flexbox for displaying the card col
 ### Required
 
 * card-wrap
-    Has to be used on the top element of each card. The standalone-card mixin should be called on this same element when used without a collection.
+    Has to be used on the top element of each card.
     Important! On collections, the way flexbox works this has to be a direct children of the card collection container.
 
 ### Optional
@@ -94,7 +94,7 @@ When part of a collection, each card would have a base size, and could have a ma
 ### Required
 
 * card
-    An element children of the wrapper.
+    An element children of the wrapper. The standalone-card mixin should be called on this same element when used without a collection.
 
 ## Row
 
@@ -132,9 +132,29 @@ When part of a collection, each card would have a base size, and could have a ma
     Division width can grow to fit row available space.
 * card__row__divisions__division--shrinkable
     Division width can shrink to fit row available space.
-    
+
+## Sub-divisions
+
+### Required
+
+* card__row__divisions__division__sub-divisions
+    An element containing vertical subdivisions of one division of a row of content of the card.
+
+## Sub-division
+
+### Required
+
+* card__row__divisions__division__sub-divisions__sub-division
+    One piece of content on a card's subdivided division.
+
+### Optional
+* card__row__divisions__division__sub-divisions__sub-division--growable
+    Division height can grow to fit row available space.
+* card__row__divisions__division__sub-divisions__sub-division--shrinkable
+    Division height can shrink to fit row available space.
+
 Sakura
-Version: 1.1
+Version: 1.4
 
 https://github.com/franrosa/sakura
 
