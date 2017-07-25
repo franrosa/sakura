@@ -1,4 +1,4 @@
-# Sakura v1.4
+# Sakura v1.5
 
 SCSS mixins to work with cards — and card collections — using flexbox
 
