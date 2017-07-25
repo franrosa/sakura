@@ -154,7 +154,7 @@ When part of a collection, each card would have a base size, and could have a ma
     Division height can shrink to fit row available space.
 
 Sakura
-Version: 1.4
+Version: 1.5
 
 https://github.com/franrosa/sakura
 
