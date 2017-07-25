@@ -1,7 +1,7 @@
 /*
 	Sakura
 	https://franrosa.github.io/sakura/
-	v1.4
+	v1.5
 */
 @mixin card-collection($cards-min-size, $cards-max-size: $cards-min-size, $cards-separation: 0, $cards-inner-space: 0){
 	&.card-collection {
@@ -79,6 +79,7 @@
 				}
 				&.card__row--growable {
 					flex-grow: 1;
+					flex-basis: 100%;
 				}
 				&.card__row--shrinkable {
 					flex-shrink: 1;
@@ -95,6 +96,7 @@
 						flex-basis: auto;
 						&.card__row__divisions__division--growable {
 							flex-grow: 1;
+							flex-basis: 100%;
 						}
 						&.card__row__divisions__division--shrinkable {
 							flex-shrink: 1;
@@ -111,6 +113,7 @@
 								flex-basis: auto;
 								&.card__row__divisions__division__sub-divisions__sub-division--growable {
 									flex-grow: 1;
+									flex-basis: 100%;
 								}
 								&.card__row__divisions__division__sub-divisions__sub-division--shrinkable {
 									flex-shrink: 1;
@@ -186,6 +189,7 @@
 			}
 			&.card__row--growable {
 				flex-grow: 1;
+				flex-basis: 100%;
 			}
 			&.card__row--shrinkable {
 				flex-shrink: 1;
@@ -202,6 +206,7 @@
 					flex-basis: auto;
 					&.card__row__divisions__division--growable {
 						flex-grow: 1;
+						flex-basis: 100%;
 					}
 					&.card__row__divisions__division--shrinkable {
 						flex-shrink: 1;
@@ -218,6 +223,7 @@
 							flex-basis: auto;
 							&.card__row__divisions__division__sub-divisions__sub-division--growable {
 								flex-grow: 1;
+								flex-basis: 100%;
 							}
 							&.card__row__divisions__division__sub-divisions__sub-division--shrinkable {
 								flex-shrink: 1;
